@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Words</title>
+<meta name="viewport" content="width=device-width" />
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfhCR0HOxCa5WZtAAAEnklEQVRo3u3ZS2wVVRzH8U95lPJQkEdUDFWQl4aHDWJEWMirBY0uCCpE6YJEJCxIQAxi1JgQIy4UWUDQBQICmoCiBhMRH8SSyCsiSkRkUVrCy4AUY6EN7R0XlHqnvXPvXDqpG393M+ec/zn/7/zPf87MuYdc6m2N44IEfrUqzMzpr4X6OZWI839/y/MD2CBw2HQF+ZJnvJllGjUYkU+nUwJTE3B+XV8ILEqv6BRp2s08Y/XHEs+3yel5B73nchPAI4bE6TTAsURn/pgBYL7A2jgRWGeoSmv8kkDYR1pgqHX5TOUdAg2KE3B+TcUaBPrHi0AHD3gCJ81ok9NApX3OgWq7TTba6dZmLQEG2mwcuMvKNt/5ZS9YA/5Gl0wmYYDOPlai1qfOt9l5gSnutVq1HdnMwgCPK3HOMJfa7P6a3vCiV7IDdAiVxmJdYu5ZJWVUCx9ZAXqhOjH3nHVVkcL4ANnscgx0o4oDcKf1Lrii3o8WJg3QKadFB5tMkFKvQIkSZ2xt3wjMNEGl+xTpajneSeTVnAfAo1jlF6S86rT+RrcnQIFS7Gwuf4Wy9gQY7TbVfmsuf9neAGWh+2eXlPF6tB/AtBYAfzqg0MPtBdDDeI2+CdVlmoQiD5hnluEoNMdtSQFM0tl+NaG6na0AZqiyz7s+dNROz9toWXyA7AtRywyA/S4aYqDKpvJLXsdP9uvlYaVK0TOpCLTMAGj0dVoMRnlNylwlnvOUYbbHd50bYLBBLjrQqj49CxbpbKX3m0o1ylXlB5BtCspwoOlzOl3HMEknDa59QaxPa/vbtvx2EdkApqG0ea7Dutk4FbgHv4ZafpWXogEKTSQioDfprUwF6nXVxZW0ti7yUjTABN0dMTJj2xS7lHkZhzxkjD1pbWPyA4hOwjLX0i2T9rhijL7Yg1fSWgabHTniZjXejg+Q6RG8rjoVCkzFCmeV+sitYKKdukWO2E1PXeMC3G6UyyoiB7v+Wr6oXI2nnPG78741yDmUmpahzzNusTguQKF629VHAnzibNPVLiNs9Zch+jhtqWI73G5yhj61akLpiugkrDLQn6JVaYTaputTnlRgsEv+AI8Z4FSa7UYp90cNFP0UnJFdF0KlwPG00slQ2xPZhom7L2iLys128L8E2Oqj0JSE1HoKxqlL0HnHXAatAcqVt0NUsgDsdSzB8efkmuTWABvC/+G0UbNyvZzaIwn/B8iq6JWwyF7Db2jMOgtsaTtARzfn+3XT3LNrfONogFp33yBAo6tJABAkuibeAMCKUA5UWaxRseU59z113nQooq2Y8FYvGqCPJS1W8pVOmBRroT4eAdDTXMJbnWiAC+4zOK1c7QQ+UBUjArsz1i+1SXeHfB4PgCOOtKpr9F2MCGTWg/jB0+EUzQYw0bAcQwa+dzSW85vwlm32S2UzWyswv+m6r1SMo5ifcziuEyhKO7BopegInLcw5wFb4LMYd7/Iszr6OtNxRbYIJKO6FodWOSKQkuzrqUABtjjQfGyXM1iBLxIEmCqI/hzNpBEaNFqmXyJ3P91hQejvixhanvBRdZW++ZLPVKE2EefHrdYrl7t/AJmN7H9AsdVhAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTA5LTI5VDA3OjU5OjE2KzAyOjAwPeYetAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wOS0yOVQwNzo1OToxNiswMjowMEy7pggAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC">
+<style type="text/css">
+html, body{height: 100%;width: 100%;box-sizing: border-box;margin: 0;font-size: 20px;background: #000;color: #FFF;}
+input, textarea{background: transparent;color: #FFF;}
+#wrapper{max-width: 720px;margin: 0 auto;text-align: center;padding-top: 100px;z-index: 10;position: relative;}
+#word{font-size: 64px;text-align: center;width: 100%;border: none;outline: none;font-family: "Consolas";}
+#desc{text-align: center;width: 100%;margin-top: 1em;height: 4em;border: none;white-space: none;background: #111;font-family: "Consolas";}
+#canvas{position: fixed;top:0;left:0;width: 100%;height: 100%;z-index: 1;box-sizing: border-box;}
+.hide{visibility: hidden;}
+button{font-size: 1em;}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<form id="form">
+<input type="text" id="word" autofocus><br>
+<div id="descbox" class="hide">
+	<textarea rows="1" id="desc" wrap="soft"></textarea>
+</div>
+<p><button type="submit">Next</button><button type="button" id="hint-btn">Hint</button> <span id="counter">0/0</span><br><button type="button" id="load">Load</button><button type="button" id="save">Save</button></p>
+</form>
+</div>
+<canvas id="canvas"></canvas>
+<script>
+// Fireworks from https://codepen.io/programking/pen/ejELv
+	(function(){
+	// when animating on canvas, it is best to use requestAnimationFrame instead of setTimeout or setInterval
+	// not supported in all browsers though and sometimes needs a prefix, so we need a shim
+	var requestAnimFrame = ( function() {
+		return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					function( callback ) {
+						window.setTimeout( callback, 1000 / 60 );
+					};
+	})();
+
+	// now we will setup our basic variables for the demo
+	var canvas = document.getElementById( 'canvas' ),
+			ctx = canvas.getContext( '2d' ),
+			// full screen dimensions
+			cw = window.innerWidth,
+			ch = window.innerHeight,
+			// firework collection
+			fireworks = [],
+			// particle collection
+			particles = [],
+			// starting hue
+			hue = 120,
+			// when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
+			limiterTotal = 5,
+			limiterTick = 0,
+			// this will time the auto launches of fireworks, one launch per 80 loop ticks
+			timerTotal = 20,
+			timerTick = 0,
+			mousedown = false,
+			// mouse x coordinate,
+			mx,
+			// mouse y coordinate
+			my;
+
+	// set canvas dimensions
+	canvas.width = cw;
+	canvas.height = ch;
+
+	// now we are going to setup our function placeholders for the entire demo
+
+	// get a random number within a range
+	function random( min, max ) {
+		return Math.random() * ( max - min ) + min;
+	}
+
+	// calculate the distance between two points
+	function calculateDistance( p1x, p1y, p2x, p2y ) {
+		var xDistance = p1x - p2x,
+				yDistance = p1y - p2y;
+		return Math.sqrt( Math.pow( xDistance, 2 ) + Math.pow( yDistance, 2 ) );
+	}
+
+	// create firework
+	function Firework( sx, sy, tx, ty ) {
+		// actual coordinates
+		this.x = sx;
+		this.y = sy;
+		// starting coordinates
+		this.sx = sx;
+		this.sy = sy;
+		// target coordinates
+		this.tx = tx;
+		this.ty = ty;
+		// distance from starting point to target
+		this.distanceToTarget = calculateDistance( sx, sy, tx, ty );
+		this.distanceTraveled = 0;
+		// track the past coordinates of each firework to create a trail effect, increase the coordinate count to create more prominent trails
+		this.coordinates = [];
+		this.coordinateCount = 3;
+		// populate initial coordinate collection with the current coordinates
+		while( this.coordinateCount-- ) {
+			this.coordinates.push( [ this.x, this.y ] );
+		}
+		this.angle = Math.atan2( ty - sy, tx - sx );
+		this.speed = 1;
+		this.acceleration = 1.05;
+		this.brightness = random( 50, 70 );
+		// circle target indicator radius
+		this.targetRadius = 1;
+	}
+
+	// update firework
+	Firework.prototype.update = function( index ) {
+		// remove last item in coordinates array
+		this.coordinates.pop();
+		// add current coordinates to the start of the array
+		this.coordinates.unshift( [ this.x, this.y ] );
+
+		// cycle the circle target indicator radius
+		if( this.targetRadius < 8 ) {
+			this.targetRadius += 0.3;
+		} else {
+			this.targetRadius = 1;
+		}
+
+		// speed up the firework
+		this.speed *= this.acceleration;
+
+		// get the current velocities based on angle and speed
+		var vx = Math.cos( this.angle ) * this.speed,
+				vy = Math.sin( this.angle ) * this.speed;
+		// how far will the firework have traveled with velocities applied?
+		this.distanceTraveled = calculateDistance( this.sx, this.sy, this.x + vx, this.y + vy );
+
+		// if the distance traveled, including velocities, is greater than the initial distance to the target, then the target has been reached
+		if( this.distanceTraveled >= this.distanceToTarget ) {
+			createParticles( this.tx, this.ty );
+			// remove the firework, use the index passed into the update function to determine which to remove
+			fireworks.splice( index, 1 );
+		} else {
+			// target not reached, keep traveling
+			this.x += vx;
+			this.y += vy;
+		}
+	}
+
+	// draw firework
+	Firework.prototype.draw = function() {
+		ctx.beginPath();
+		// move to the last tracked coordinate in the set, then draw a line to the current x and y
+		ctx.moveTo( this.coordinates[ this.coordinates.length - 1][ 0 ], this.coordinates[ this.coordinates.length - 1][ 1 ] );
+		ctx.lineTo( this.x, this.y );
+		ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
+		ctx.stroke();
+
+		ctx.beginPath();
+		// draw the target for this firework with a pulsing circle
+		ctx.arc( this.tx, this.ty, this.targetRadius, 0, Math.PI * 2 );
+		ctx.stroke();
+	}
+
+	// create particle
+	function Particle( x, y ) {
+		this.x = x;
+		this.y = y;
+		// track the past coordinates of each particle to create a trail effect, increase the coordinate count to create more prominent trails
+		this.coordinates = [];
+		this.coordinateCount = 5;
+		while( this.coordinateCount-- ) {
+			this.coordinates.push( [ this.x, this.y ] );
+		}
+		// set a random angle in all possible directions, in radians
+		this.angle = random( 0, Math.PI * 2 );
+		this.speed = random( 1, 10 );
+		// friction will slow the particle down
+		this.friction = 0.95;
+		// gravity will be applied and pull the particle down
+		this.gravity = 1;
+		// set the hue to a random number +-20 of the overall hue variable
+		this.hue = random( hue - 20, hue + 20 );
+		this.brightness = random( 50, 80 );
+		this.alpha = 1;
+		// set how fast the particle fades out
+		this.decay = random( 0.015, 0.03 );
+	}
+
+	// update particle
+	Particle.prototype.update = function( index ) {
+		// remove last item in coordinates array
+		this.coordinates.pop();
+		// add current coordinates to the start of the array
+		this.coordinates.unshift( [ this.x, this.y ] );
+		// slow down the particle
+		this.speed *= this.friction;
+		// apply velocity
+		this.x += Math.cos( this.angle ) * this.speed;
+		this.y += Math.sin( this.angle ) * this.speed + this.gravity;
+		// fade out the particle
+		this.alpha -= this.decay;
+
+		// remove the particle once the alpha is low enough, based on the passed in index
+		if( this.alpha <= this.decay ) {
+			particles.splice( index, 1 );
+		}
+	}
+
+	// draw particle
+	Particle.prototype.draw = function() {
+		ctx. beginPath();
+		// move to the last tracked coordinates in the set, then draw a line to the current x and y
+		ctx.moveTo( this.coordinates[ this.coordinates.length - 1 ][ 0 ], this.coordinates[ this.coordinates.length - 1 ][ 1 ] );
+		ctx.lineTo( this.x, this.y );
+		ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
+		ctx.stroke();
+	}
+
+	// create particle group/explosion
+	function createParticles( x, y ) {
+		// increase the particle count for a bigger explosion, beware of the canvas performance hit with the increased particles though
+		var particleCount = 30;
+		while( particleCount-- ) {
+			particles.push( new Particle( x, y ) );
+		}
+	}
+
+	// main demo loop
+	function loop() {
+		// this function will run endlessly with requestAnimationFrame
+		requestAnimFrame( loop );
+
+		// increase the hue to get different colored fireworks over time
+		hue += 0.5;
+
+		// normally, clearRect() would be used to clear the canvas
+		// we want to create a trailing effect though
+		// setting the composite operation to destination-out will allow us to clear the canvas at a specific opacity, rather than wiping it entirely
+		ctx.globalCompositeOperation = 'destination-out';
+		// decrease the alpha property to create more prominent trails
+		ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+		ctx.fillRect( 0, 0, cw, ch );
+		// change the composite operation back to our main mode
+		// lighter creates bright highlight points as the fireworks and particles overlap each other
+		ctx.globalCompositeOperation = 'lighter';
+
+		// loop over each firework, draw it, update it
+		var i = fireworks.length;
+		while( i-- ) {
+			fireworks[ i ].draw();
+			fireworks[ i ].update( i );
+		}
+
+		// loop over each particle, draw it, update it
+		var i = particles.length;
+		while( i-- ) {
+			particles[ i ].draw();
+			particles[ i ].update( i );
+		}
+
+		// launch fireworks automatically to random coordinates, when the mouse isn't down
+		if( timerTick >= timerTotal ) {
+			if( !mousedown ) {
+				// start the firework at the bottom middle of the screen, then set the random target coordinates, the random y coordinates will be set within the range of the top half of the screen
+				fireworks.push( new Firework( cw / 2, ch, random( 0, cw ), random( 0, ch / 2 ) ) );
+				timerTick = 0;
+			}
+		} else {
+			timerTick++;
+		}
+
+		// limit the rate at which fireworks get launched when mouse is down
+		if( limiterTick >= limiterTotal ) {
+			if( mousedown ) {
+				// start the firework at the bottom middle of the screen, then set the current mouse coordinates as the target
+				fireworks.push( new Firework( cw / 2, ch, mx, my ) );
+				limiterTick = 0;
+			}
+		} else {
+			limiterTick++;
+		}
+	}
+
+	// mouse event bindings
+	// update the mouse coordinates on mousemove
+	canvas.addEventListener( 'mousemove', function( e ) {
+		mx = e.pageX - canvas.offsetLeft;
+		my = e.pageY - canvas.offsetTop;
+	});
+
+	// toggle mousedown state and prevent canvas from being selected
+	canvas.addEventListener( 'mousedown', function( e ) {
+		e.preventDefault();
+		mousedown = true;
+	});
+
+	canvas.addEventListener( 'mouseup', function( e ) {
+		e.preventDefault();
+		mousedown = false;
+	});
+
+	// update the mouse coordinates on mousemove
+	canvas.addEventListener( 'touchmove', function( e ) {
+		mx = e.touches[0].pageX - canvas.offsetLeft;
+		my = e.touches[0].pageY - canvas.offsetTop;
+	});
+
+	// toggle mousedown state and prevent canvas from being selected
+	canvas.addEventListener( 'touchstart', function( e ) {
+		e.preventDefault();
+		mousedown = true;
+	});
+
+	canvas.addEventListener( 'touchend', function( e ) {
+		e.preventDefault();
+		mousedown = false;
+	});
+
+	// once the window loads, we are ready for some fireworks!
+	window.startFirework = loop;
+})();
+
+// Main
+var wordList = [];
+var wordListUndone = [];
+var wordDone = [];
+var currentIndex = 0;
+function load(event){
+	event_stop(event);
+	var files = event[event.dataTransfer ? 'dataTransfer' : 'target'].files;
+	if(files.length != 1){
+		alert('请只选择 1 个文件。');
+		return false;
+	}
+
+	var reader = new FileReader();
+	reader.onload = function(event) {
+		if(event.target.readyState == 2){
+			wordList = (event.target.result || '').replace("\r", "").split("\n").filter(function(r){return !!r.trim();});
+			wordListUndone = wordList.map(function(v, i){return i;});
+			document.getElementById('counter').innerHTML = '0/' + (wordList.length||0);
+			randNext();
+		}else{
+			alert('读取文件时出错：'+ event.target.error);
+		}
+	};
+	reader.readAsText(files[0]);
+	drop_fileinput = null;
+
+	return false;
+}
+function event_stop(event){
+	if(event){
+		event.stopPropagation();
+		event.preventDefault();
+	}
+	return false;
+}
+document.body.addEventListener('drop', load);
+document.body.addEventListener('dragenter', event_stop);
+document.body.addEventListener('dragover', event_stop);
+document.body.addEventListener('dragexit', event_stop);
+document.body.addEventListener('dragend', event_stop);
+var drop_fileinput = null;
+document.getElementById('save').addEventListener('click', save);
+document.getElementById('load').addEventListener('click', function(){
+	drop_fileinput = document.createElement('input');
+	drop_fileinput.setAttribute('type', 'file');
+	drop_fileinput.setAttribute('accept', '.txt');
+	drop_fileinput.addEventListener('change', load);
+
+	if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        drop_fileinput.dispatchEvent(event);
+    }
+    else {
+        drop_fileinput.click();
+    }
+});
+function save(){
+	if(!wordList.length) return;
+	saveLocal();
+	var text = wordList.join("\r\n");
+ 	var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', 'words');
+
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
+}
+function loadLocal(){
+	var text = localStorage.wordList;
+	if(text){
+		wordList = text.split("\n");
+		wordListUndone = wordList.map(function(v, i){return i;});
+		document.getElementById('counter').innerHTML = (wordList.length||0);
+		wordDone = [];
+		randNext();
+	}
+}
+function saveLocal(){
+	if(!wordList.length) return;
+	var text = wordList.join("\n");
+	localStorage.wordList = text;
+}
+function randNext(){
+	if(!wordList.length) return;
+
+	var wordListLength = wordListUndone.length;
+	if(wordListUndone.length == 0){
+		document.getElementById('counter').innerHTML = '0/' + (wordList.length||0);
+		startFirework();
+		return;
+	}
+	currentIndex = Math.floor(Math.random()*wordListLength);
+
+	currentIndex = wordListUndone.splice(currentIndex, 1);
+	var text = wordList[currentIndex];
+	var spaceLoc = text.indexOf(" ");
+	if(spaceLoc == -1) spaceLoc = text.length;
+
+	document.getElementById('descbox').classList.add('hide');
+	document.getElementById('desc').value = text.substr(spaceLoc+1).trim();
+	document.getElementById('word').value = text.substr(0, spaceLoc);
+	document.getElementById('word').focus();
+	document.getElementById('counter').innerHTML = wordListUndone.length+1 + '/' + (wordList.length||0);
+}
+document.getElementById('form').addEventListener('submit', function(event){
+	// save data
+	var desc = document.getElementById('desc').value;
+	wordList[currentIndex] = document.getElementById('word').value+(desc?' '+desc:'');
+	randNext();
+	return event_stop(event);
+});
+document.getElementById('hint-btn').addEventListener('click', function(event){
+	toggleDescBox();
+});
+function toggleDescBox(){
+	document.getElementById('descbox').classList.toggle('hide');
+	//var d = document.getElementById('descbox');
+	//var state = d.classList.contains('hide');
+	//d.classList[state?'remove':'add']('hide');
+}
+document.addEventListener('keydown', function(event){
+	if (event.keyCode == 83 && (navigator.platform.match("Mac") ? event.metaKey : event.ctrlKey)){
+		save();
+	    return event_stop(event);
+	}
+});
+document.getElementById('word').addEventListener('keydown', function(event){
+	if(event.keyCode == 38 || event.keyCode == 40){
+		toggleDescBox();
+		return event_stop(event);
+	}
+});
+document.getElementById('desc').addEventListener('input', function(event){
+	this.value = this.value.replace(/\n/g, '');
+});
+document.getElementById('desc').addEventListener('keydown', function(event){
+	if(event.keyCode == 13){
+		var ne = document.createEvent('Events');
+        ne.initEvent('submit', true, true);
+        document.getElementById('form').dispatchEvent(ne);
+		return event_stop(event);
+	}
+});
+
+loadLocal();
+window.addEventListener('unload', function(){
+	saveLocal();
+});
+</script>
+</body>
+</html>

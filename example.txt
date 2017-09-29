@@ -1,0 +1,3 @@
+﻿perimeter
+slope
+equilateral 等边的
